@@ -1,3 +1,5 @@
+@echo off
 cd testautomation
 cd selenium
-info.vbs
+dotnet test
+pause
