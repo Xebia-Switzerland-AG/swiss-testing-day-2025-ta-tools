@@ -6,6 +6,7 @@
         name: 'songs-create'
       }"
       class="cyan accent-2"
+      data-test-id="createSongLink"
       light
       medium
       absolute
