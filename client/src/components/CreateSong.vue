@@ -72,7 +72,7 @@
 
         <v-text-field
           label="Lyrics"
-          data-test-id="newSongStructure"
+          data-test-id="newSongLyrics"
           multi-line
           required
           :rules="[required]"
