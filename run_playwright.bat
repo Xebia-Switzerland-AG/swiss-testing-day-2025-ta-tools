@@ -1,2 +1,4 @@
+@echo off
 cd ./testautomation/playwright
-start npm run playwright:run
+call npm run playwright:run
+pause

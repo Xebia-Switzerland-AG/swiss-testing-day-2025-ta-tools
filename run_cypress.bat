@@ -1,2 +1,4 @@
+@echo off
 cd ./testautomation/cypress
-start npm run cypress:run
+call npm run cypress:run
+pause

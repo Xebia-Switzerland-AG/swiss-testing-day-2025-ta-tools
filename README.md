@@ -14,6 +14,8 @@ Before running the tests, ensure you have the necessary dependencies installed:
 
 This batch file installs the required dependencies for the project, including the necessary Node.js packages and libraries. For that you need to have [Node Js](https://nodejs.org/en/) installed: You must at least have **NODE version 8.2.1**
 
+For Selenium you need net6.0 installed (command 'dotnet' should work).
+
 
 ```bash
 install_dependencies.bat
