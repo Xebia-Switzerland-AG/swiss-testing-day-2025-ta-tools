@@ -1,1 +1,0 @@
-MsgBox "Cypress TA is not yet implemented", vbInformation, "Information"
