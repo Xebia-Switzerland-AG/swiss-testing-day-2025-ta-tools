@@ -1,4 +1,45 @@
+# Node.js and npm
 node_modules
-output
+/package-lock.json
+
+# IDE-specific files
+.idea/
 *.iml
+.vs/ 
+
+# Build and output directories
+output
+/bin/
+/obj/
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+# Visual Studio 2019 config folder
+.vscode/
+
+# C# User-specific files
+*.suo
+*.user
+*.userprefs
+
+# Mac specific files
 .DS_Store
+
+# C# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+[Ll]ocal/[Tt]emp/
+[Ll]ocal/[Uu]nits/
+[Ll]ocal/[Ss]tats/
