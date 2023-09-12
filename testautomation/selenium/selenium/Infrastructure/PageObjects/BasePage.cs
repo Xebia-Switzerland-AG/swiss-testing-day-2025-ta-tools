@@ -12,14 +12,31 @@ namespace selenium.Infrastructure.PageObjects
             _driver = driver;
         }
 
-        public void ClickElement(By element)
+        public void ClickOnElement(By element)
         {
             _driver.FindElement(element).Click();
         }
 
-        public bool IsElementVisible(By element)
+        public void SendTextToElement(By element, string value)
         {
-            return _driver.FindElement(element).Displayed;
+            _driver.FindElement(element).SendKeys(value);
+        }
+
+        public String GetTextFromElement(By element)
+        {
+            return _driver.FindElement(element).Text;
+        }
+
+        public void ClearElement(By element)
+        {
+            SendTextToElement(element, Keys.Control + "a" + Keys.Backspace);
+            _driver.FindElement(element).Clear();
+        }
+
+        public void ClearAndSendTextToElement(By element, string value)
+        {
+            ClearElement(element);
+            SendTextToElement(element, value);
         }
     }
 }

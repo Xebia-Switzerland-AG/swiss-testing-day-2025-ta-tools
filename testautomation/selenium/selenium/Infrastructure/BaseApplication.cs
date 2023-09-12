@@ -21,11 +21,6 @@ namespace selenium.Infrastructure
             SongView = new SongViewPage(_driver);
         }
 
-        public void GoHome()
-        {
-            Home.GoHome();
-        }
-
         public void Dispose()
         {
             _driver.Dispose();
