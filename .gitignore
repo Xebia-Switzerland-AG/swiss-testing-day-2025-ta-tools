@@ -15,8 +15,6 @@ output
 *.user
 *.userprefs
 *.sln.docstates
-tabtracker.sqlite
-
 # Visual Studio 2019 config folder
 .vscode/
 
