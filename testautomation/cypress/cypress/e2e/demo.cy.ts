@@ -17,7 +17,9 @@ describe("demo", () => {
         "D Sunne schynt dür d Storen uf mys Pult\nU malt es chlyses Vieregg druf us Gold\nEh chasch es mitnäh wes der gfallt\nDe chasch es ha\nDu muesch mer nüt erkläre wed wosch ga\nEh d Stadt isch violett u d Schätte läng\nI weiss nume nid was söll i jetz mit däm?\nWed nomau muesch überlege, überleisch\nAber mir muesch nüt erkläre we de geisch\nI probieres z akzeptiere so wies isch\nU grad alles wirdi sicher nid vermisse\nI chume geng no nid ganz drus\nWas du für eini bisch aber chasch sicher si\nDass i das gärn wett wüsse\nD Sunne schynt dür d Storen yy uf ds Pult\nU malt es chlyses Vieregg druf us Gold\nEh d Stadt isch violett u d Schätte läng\nI weiss nume nid was söll i jetz mit däm?\nI schatteboxe gäge d Wänd\n\nI probieres z akzeptiere wes so isch\nU grad alles wirdi sicher nid vermisse\nI chume geng no nid ganz drus\nWas du für eini bisch aber chasch sicher si\nDass i das gärn wett wüsse\nD Sunne schynt dür d Storen uf mys Pult\nU malt es chlyses Vieregg druf us Gold\nD Stadt isch violett u d Schätte läng\nI weiss nume nid was söll i jetz mit däm?\nI schatteboxe gäge d Wänd\nSchatteboxe gäge d Wänd",
     };
 
-    cy.visit("http://localhost:8080/#/songs/create");
+    cy.visit("http://localhost:8080/");
+
+    cy.get('[data-test-id="createSongLink"]').click();
 
     cy.get('[data-test-id="newSongTitle"]').type(songMetadata.title);
     cy.get('[data-test-id="newSongArtist"]').type(songMetadata.artist);

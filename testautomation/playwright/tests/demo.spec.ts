@@ -14,7 +14,8 @@ const songMetadata = {
 };
 
 test("should create song", async ({ page }) => {
-  await page.goto("http://localhost:8080/#/songs/create");
+  await page.goto("http://localhost:8080");
+  await page.getByTestId("createSongLink").click();
 
   await page.getByTestId("newSongTitle").type(songMetadata.title);
   await page.getByTestId("newSongArtist").type(songMetadata.artist);
