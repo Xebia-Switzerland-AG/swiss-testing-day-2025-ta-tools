@@ -3,44 +3,43 @@
     <v-btn
       slot="action"
       :to="{
-        name: 'songs-create'
+        name: 'songs-create',
       }"
       class="cyan accent-2"
+      data-test-id="createSongLink"
       light
       medium
       absolute
       right
       middle
-      fab>
+      fab
+    >
       <v-icon>add</v-icon>
     </v-btn>
 
-    <div 
-      v-for="song in songs"
-      class="song"
-      :key="song.id">
-
+    <div v-for="song in songs" class="song" :key="song.id">
       <v-layout>
         <v-flex xs6>
-          <div class="song-title">
-            {{song.title}}
+          <div class="song-title" data-test-id="songTitle">
+            {{ song.title }}
           </div>
-          <div class="song-artist">
-            {{song.artist}}
+          <div class="song-artist" data-test-id="songArtist">
+            {{ song.artist }}
           </div>
-          <div class="song-genre">
-            {{song.genre}}
+          <div class="song-genre" data-test-id="songGenre">
+            {{ song.genre }}
           </div>
 
           <v-btn
             dark
             class="cyan"
             :to="{
-              name: 'song', 
+              name: 'song',
               params: {
-                songId: song.id
-              }
-            }">
+                songId: song.id,
+              },
+            }"
+          >
             View
           </v-btn>
         </v-flex>
@@ -57,19 +56,19 @@
 import SongsService from '@/services/SongsService'
 
 export default {
-  data () {
+  data() {
     return {
-      songs: null
+      songs: null,
     }
   },
   watch: {
     '$route.query.search': {
       immediate: true,
-      async handler (value) {
+      async handler(value) {
         this.songs = (await SongsService.index(value)).data
-      }
-    }
-  }
+      },
+    },
+  },
 }
 </script>
 

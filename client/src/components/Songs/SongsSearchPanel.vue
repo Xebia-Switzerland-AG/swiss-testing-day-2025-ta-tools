@@ -1,6 +1,7 @@
 <template>
   <panel title="Search">
     <v-text-field
+      data-test-id="search-bar"
       label="Search by song title, artist, album, or genre"
       v-model="search"
     ></v-text-field>
@@ -11,33 +12,31 @@
 import _ from 'lodash'
 
 export default {
-  data () {
+  data() {
     return {
-      search: ''
+      search: '',
     }
   },
   watch: {
     search: _.debounce(async function (value) {
       const route = {
-        name: 'songs'
+        name: 'songs',
       }
       if (this.search !== '') {
         route.query = {
-          search: this.search
+          search: this.search,
         }
       }
       this.$router.push(route)
     }, 50),
     '$route.query.search': {
       immediate: false,
-      handler (value) {
+      handler(value) {
         this.search = value
-      }
-    }
-  }
+      },
+    },
+  },
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

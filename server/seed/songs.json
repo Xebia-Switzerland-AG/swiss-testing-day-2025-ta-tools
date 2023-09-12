@@ -1,67 +1,41 @@
 [
-  {
-      "album": "Nevermind",
-      "albumImageUrl": "https://is3-ssl.mzstatic.com/image/thumb/Features/d0/cc/62/dj.nanioukp.jpg/268x0w.jpg",
-      "artist": "Nirvana",
-      "createdAt": "2018-02-13 12:56:24.432 +00:00",
-      "genre": "Alternative Rock",
-      "id": "1",
-      "lyrics": "",
-      "tab": "",
-      "title": "Nevermind",
-      "updatedAt": "2018-02-13 12:56:24.432 +00:00",
-      "youtubeId": "m-ofL_3EZyE"
-  },
-  {
-      "album": "The Search for Everything",
-      "albumImageUrl": "https://images.genius.com/a64eea0c361b6b02f4b7423adf80bb6e.1000x992x1.jpg",
-      "artist": "John Mayer",
-      "createdAt": "2018-02-13 12:56:24.432 +00:00",
-      "genre": "Acoustic Rock",
-      "id": "2",
-      "lyrics": "",
-      "tab": "",
-      "title": "In the blood",
-      "updatedAt": "2018-02-13 12:56:24.432 +00:00",
-      "youtubeId": "ob-jS7bqYgI"
-  },
-  {
-      "album": "Drop it",
-      "albumImageUrl": "https://img.discogs.com/H7zIgOQXI5e7yXB5---U5n1kOXc=/fit-in/303x301/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-17264-1133778698.jpeg.jpg",
-      "artist": "3 Steps Ahead",
-      "createdAt": "2018-02-13 12:56:24.432 +00:00",
-      "genre": "Hardcore",
-      "id": "3",
-      "lyrics": "",
-      "tab": "",
-      "title": "Drop it",
-      "updatedAt": "2018-02-13 12:56:24.432 +00:00",
-      "youtubeId": "KB09paeV_aE"
-  },
-  {
-      "album": "Black Sunday",
-      "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/b/ba/Cypress_Hill-Black_Sunday.jpg",
-      "artist": "Cypress Hill",
-      "createdAt": "2018-02-13 12:56:24.432 +00:00",
-      "genre": "Rap",
-      "id": "4",
-      "lyrics": "",
-      "tab": "",
-      "title": "I Ain't Goin' Out Like That",
-      "updatedAt": "2018-02-13 12:56:24.432 +00:00",
-      "youtubeId": "q7p-ihYOG5s"
-  },
-  {
-      "album": "Denim XXL",
-      "albumImageUrl": "http://averagejoesent.com/wp-content/uploads/sites/4/2017/08/CS_DenimXXL_WOLdeluxe-FINAL-COVER.jpg",
-      "artist": "Cypress Spring",
-      "createdAt": "2018-02-13 12:56:24.432 +00:00",
-      "genre": "Southern Rock",
-      "id": "5",
-      "lyrics": "",
-      "tab": "",
-      "title": "Way of Life",
-      "updatedAt": "2018-02-13 12:56:24.432 +00:00",
-      "youtubeId": "ZcOYhHDTO28"
-  }
+    {
+        "album": "Nevermind",
+        "albumImageUrl": "https://is3-ssl.mzstatic.com/image/thumb/Features/d0/cc/62/dj.nanioukp.jpg/268x0w.jpg",
+        "artist": "Nirvana",
+        "createdAt": "2018-02-13 12:56:24.432 +00:00",
+        "genre": "Alternative Rock",
+        "id": "1",
+        "lyrics": "",
+        "tab": "",
+        "title": "Nevermind",
+        "updatedAt": "2018-02-13 12:56:24.432 +00:00",
+        "youtubeId": "m-ofL_3EZyE"
+    },
+    {
+        "album": "Drop it",
+        "albumImageUrl": "https://img.discogs.com/H7zIgOQXI5e7yXB5---U5n1kOXc=/fit-in/303x301/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-17264-1133778698.jpeg.jpg",
+        "artist": "3 Steps Ahead",
+        "createdAt": "2018-02-13 12:56:24.432 +00:00",
+        "genre": "Hardcore",
+        "id": "3",
+        "lyrics": "",
+        "tab": "",
+        "title": "Drop it",
+        "updatedAt": "2018-02-13 12:56:24.432 +00:00",
+        "youtubeId": "KB09paeV_aE"
+    },
+    {
+        "album": "Black Sunday",
+        "albumImageUrl": "https://upload.wikimedia.org/wikipedia/en/b/ba/Cypress_Hill-Black_Sunday.jpg",
+        "artist": "Cypress Hill",
+        "createdAt": "2018-02-13 12:56:24.432 +00:00",
+        "genre": "Rap",
+        "id": "4",
+        "lyrics": "",
+        "tab": "",
+        "title": "I Ain't Goin' Out Like That",
+        "updatedAt": "2018-02-13 12:56:24.432 +00:00",
+        "youtubeId": "q7p-ihYOG5s"
+    }
 ]
