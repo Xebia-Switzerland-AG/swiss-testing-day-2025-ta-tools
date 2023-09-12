@@ -1,3 +1,2 @@
-cd testautomation
-cd playwright
-info.vbs
+cd ./testautomation/playwright
+start npm run playwright:run

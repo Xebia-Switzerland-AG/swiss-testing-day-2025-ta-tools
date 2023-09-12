@@ -1,3 +1,2 @@
-cd testautomation
-cd cypress
-info.vbs
+cd ./testautomation/cypress
+start npm run cypress:run
