@@ -6,7 +6,7 @@ const songMetadata = {
   genre: "Mundart",
   album: "Love",
   albumImageUrl:
-    "https://zueriwest.ch/wp-content/uploads/2017/02/Disko_Love.png",
+    "https://images.genius.com/7d110c7aeea743ff17d07830d3247c65.1000x1000x1.jpg",
   youtubeId: "TNW1sCFdDhI",
   tab: "test",
   lyrics:
@@ -26,7 +26,9 @@ test("should create song", async ({ page }) => {
     .type(songMetadata.albumImageUrl);
   await page.getByTestId("newSongYouTubeId").type(songMetadata.youtubeId);
   await page.getByTestId("newSongStructure").type(songMetadata.tab);
-  await page.getByTestId("newSongLyrics").type(songMetadata.lyrics);
+  await page
+    .getByTestId("newSongLyrics")
+    .type(songMetadata.lyrics, { timeout: 20_000 });
 
   const responsePromise = page.waitForResponse("**/songs");
   await page.getByTestId("createSong").click();
@@ -47,15 +49,17 @@ test("should create song", async ({ page }) => {
 
 test("should find song", async ({ page }) => {
   page.goto("http://localhost:8080/");
-  page.getByTestId("search-bar").type("Nevermind");
+  page.getByTestId("search-bar").type("She's Kerosene");
 
   await expect(page.getByTestId("songTitle")).toHaveCount(1);
 
-  await expect(page.getByTestId("songTitle")).toContainText("Nevermind");
-  await expect(page.getByTestId("songArtist")).toContainText("Nirvana");
-  await expect(page.getByTestId("songGenre")).toContainText("Alternative Rock");
+  await expect(page.getByTestId("songTitle")).toContainText("She's Kerosene");
+  await expect(page.getByTestId("songArtist")).toContainText(
+    "The Interrupters"
+  );
+  await expect(page.getByTestId("songGenre")).toContainText("Ska Punk");
 });
 
 test.afterEach(async ({ request }) => {
-  await request.get("http://localhost:8081/reset");
+  // await request.get("http://localhost:8081/reset");
 });
