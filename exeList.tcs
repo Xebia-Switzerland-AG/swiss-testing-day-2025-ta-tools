@@ -1,0 +1,25 @@
+// ************************ TCShell EXECUTION SCRIPT ************************
+
+// Update all projects
+updateall
+
+//navigate to STD
+JumpTo =>OBJECTS("3a18073f-0844-006a-e30d-06a366ffad01")
+
+// Check out all execution lists in the folder (Replace with correct path/UUID)
+FOR "->OBJECTS(\"3a18073f-0844-006a-e30d-06a366ffad01\")" TaskOnAll "CheckoutTree"
+
+//navigate to TabTracker Demo (Chrome)
+//JumpTo =>OBJECTS("3a18073f-3211-b1a9-3758-63b27c0c52a1")
+
+// Execute all execution lists
+task "Run"
+
+//CheckInAll
+checkinall
+
+//exit
+exit
+
+//yes
+yes
