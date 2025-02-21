@@ -99,4 +99,21 @@ run_cypress.bat
 run_playwright.bat
 ```
 
+## Special Case (Tricentis Tosca)
 
+1. Install Tricentis Tosca
+```bash
+"https://xebiagroup.sharepoint.com/:f:/r/sites/productquality.ch/Gedeelde%20documenten/General/Tosca/Tosca%20installation%20packages/2023.1.1?csf=1&web=1&e=AO7VjD"
+```
+
+2. Set up new Project
+
+Follow the instruction:
+```bash
+"https://intranet-swissq.atlassian.net/wiki/spaces/ZUNFT/pages/10156081156/Swiss+Testing+Day+2025"
+```
+
+3. Run Execution list with Powershel Script
+
+Please open the toscaexe.ps1 file in a editor and check, if the workplace path and the executionScript path are correct.
+Once all path are correct, you can execute the Powershell Script
