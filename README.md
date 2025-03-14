@@ -117,3 +117,12 @@ Follow the instruction:
 
 Please open the toscaexe.ps1 file in a editor and check, if the workplace path and the executionScript path are correct.
 Once all path are correct, you can execute the Powershell Script
+
+### Acces Tabtracer App via local network
+Since the Tabtracker application does not work in the virtual environment like Parallels Desktop, we use a Windows notebook as a "server" and access it externally from MacBooks.
+
+1. Start the TabTracker Application on your Windows device
+2. Make sure all devices are connected to the same network
+3. Make sure there is no active firewall between
+4. To run the tests you must make sure that the urls match this format: http://*Deine IPv4-Adresse*:8080
+5. Make sure to change the baseURL in this file: "*client/src/services/Api.js"
