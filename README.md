@@ -23,6 +23,7 @@ MacOS / Linux users should:
 2. From the root folder, run `./scripts/setup.sh` to install the required dependencies.
 3. From the root folder, run `./scripts/start_sut.sh` to start the
    System Under Test.
+4. If you cannot execute the `.sh`-file, try to give it access, like here: `chmod +x ./scripts/setup.sh`
 
 ### Running your tests
 

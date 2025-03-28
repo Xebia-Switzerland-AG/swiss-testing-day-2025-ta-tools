@@ -5,7 +5,8 @@ cd client && npm install &
 cd server && npm install &
 
 # installing the frameworks
-cd testautomation/cypress && npm install
-cd testautomation/playwright && npm install
-cd testautomation/playwright && npx playwright install
-cd testautomation/selenium && dotnet build
+ls
+cd testautomation && cd cypress && npm install
+cd .. && cd playwright && npm install
+cd .. && cd playwright && npx playwright install
+cd .. && cd selenium && dotnet build
