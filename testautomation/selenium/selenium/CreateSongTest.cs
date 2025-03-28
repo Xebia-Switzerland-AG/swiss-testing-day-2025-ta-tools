@@ -21,6 +21,8 @@ namespace selenium
             app = new BaseApplication();
             home = app.Home;
             view = app.SongView;
+
+            app.resetDB().GetAwaiter().GetResult();
         }
 
         [TestMethod]
@@ -89,6 +91,7 @@ namespace selenium
         [TestCleanup]
         public void ApplicationCleanUp()
         {
+            app.resetDB().GetAwaiter().GetResult();
             app.Dispose();
         }
     }

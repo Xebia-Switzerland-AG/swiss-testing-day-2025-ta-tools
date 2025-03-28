@@ -1,0 +1,8 @@
+{
+    "watch": ["src"],
+    "ext": "js,json",
+    "exec": "node src/app.js",
+    "restartable": "rs",
+    "delay": "1000",
+    "signal": "SIGTERM"
+}

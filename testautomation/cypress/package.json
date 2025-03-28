@@ -10,9 +10,8 @@
   },
   "author": "xebia",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "cypress": "^13.1.0"
+    "cypress": "^14.2.1",
+    "typescript": "^5.2.2"
   }
 }

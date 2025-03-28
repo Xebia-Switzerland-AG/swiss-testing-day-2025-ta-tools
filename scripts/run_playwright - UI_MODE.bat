@@ -1,4 +1,4 @@
 @echo off
-cd ./testautomation/playwright
+cd ../testautomation/playwright
 call npx playwright test --ui
 pause

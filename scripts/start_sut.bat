@@ -1,5 +1,5 @@
-cd client
+cd ../client
 start npm start
-cd ..
-cd server
+
+cd ../server
 start npm start

@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 const songMetadata = {
   title: "Schatteboxe",
-  artist: "Zürich West",
+  artist: "Zuerich West",
   genre: "Mundart",
   album: "Love",
   albumImageUrl:
@@ -10,8 +10,15 @@ const songMetadata = {
   youtubeId: "TNW1sCFdDhI",
   tab: "test",
   lyrics:
-    "D Sunne schynt dür d Storen uf mys Pult\nU malt es chlyses Vieregg druf us Gold\nEh chasch es mitnäh wes der gfallt\nDe chasch es ha\nDu muesch mer nüt erkläre wed wosch ga\nEh d Stadt isch violett u d Schätte läng\nI weiss nume nid was söll i jetz mit däm?\nWed nomau muesch überlege, überleisch\nAber mir muesch nüt erkläre we de geisch\nI probieres z akzeptiere so wies isch\nU grad alles wirdi sicher nid vermisse\nI chume geng no nid ganz drus\nWas du für eini bisch aber chasch sicher si\nDass i das gärn wett wüsse\nD Sunne schynt dür d Storen yy uf ds Pult\nU malt es chlyses Vieregg druf us Gold\nEh d Stadt isch violett u d Schätte läng\nI weiss nume nid was söll i jetz mit däm?\nI schatteboxe gäge d Wänd\n\nI probieres z akzeptiere wes so isch\nU grad alles wirdi sicher nid vermisse\nI chume geng no nid ganz drus\nWas du für eini bisch aber chasch sicher si\nDass i das gärn wett wüsse\nD Sunne schynt dür d Storen uf mys Pult\nU malt es chlyses Vieregg druf us Gold\nD Stadt isch violett u d Schätte läng\nI weiss nume nid was söll i jetz mit däm?\nI schatteboxe gäge d Wänd\nSchatteboxe gäge d Wänd",
+    "D Sunne schynt duer d Storen uf mys Pult\nU malt es chlyses Vieregg druf us Gold\nEh chasch es mitnaeh wes der gfallt\nDe chasch es ha\nDu muesch mer nuet erklaere wed wosch ga\nEh d Stadt isch violett u d Schaette laeng\nI weiss nume nid was soell i jetz mit daem?\nWed nomau muesch ueberlege, ueberleisch\nAber mir muesch nuet erklaere we de geisch\nI probieres z akzeptiere so wies isch\nU grad alles wirdi sicher nid vermisse\nI chume geng no nid ganz drus\nWas du fuer eini bisch aber chasch sicher si\nDass i das gaern wett wuesse\nD Sunne schynt duer d Storen yy uf ds Pult\nU malt es chlyses Vieregg druf us Gold\nEh d Stadt isch violett u d Schaette laeng\nI weiss nume nid was soell i jetz mit daem?\nI schatteboxe gaege d Waend\n\nI probieres z akzeptiere wes so isch\nU grad alles wirdi sicher nid vermisse\nI chume geng no nid ganz drus\nWas du fuer eini bisch aber chasch sicher si\nDass i das gaern wett wuesse\nD Sunne schynt duer d Storen uf mys Pult\nU malt es chlyses Vieregg druf us Gold\nD Stadt isch violett u d Schaette laeng\nI weiss nume nid was soell i jetz mit daem?\nI schatteboxe gaege d Waend\nSchatteboxe gaege d Waend",
 };
+
+test.beforeAll(async ({ request }) => {
+  await request.get("http://localhost:8081/reset");
+});
+test.afterAll(async ({ request }) => {
+  await request.get("http://localhost:8081/reset");
+});
 
 test("should create song", async ({ page }) => {
   await page.goto("http://localhost:8080");
@@ -48,8 +55,8 @@ test("should create song", async ({ page }) => {
 });
 
 test("should find song", async ({ page }) => {
-  page.goto("http://localhost:8080/");
-  page.getByTestId("search-bar").type("She's Kerosene");
+  await page.goto("http://localhost:8080/");
+  await page.getByTestId("search-bar").type("She's Kerosene");
 
   await expect(page.getByTestId("songTitle")).toHaveCount(1);
 
@@ -58,8 +65,4 @@ test("should find song", async ({ page }) => {
     "The Interrupters"
   );
   await expect(page.getByTestId("songGenre")).toContainText("Ska Punk");
-});
-
-test.afterEach(async ({ request }) => {
-  // await request.get("http://localhost:8081/reset");
 });

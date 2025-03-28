@@ -1,103 +1,40 @@
-# Swiss Testing Night - Test Automation Tools
+# Swiss Testing Day 2025 - Test Automation Tools
 
 ## Overview
 
-This repository is dedicated to the Swiss Testing Night event, focusing on testing a System Under Test (SUT) using different Test Automation (TA) tools, including Selenium, Cypress, and Playwright. The SUT used for this demonstration is derived from the [Tab Tracker](https://github.com/codyseibert/tab-tracker) repository by Cody Seibert and updated by [Xebia](https://github.com/xebia/cypress-training/).
+This repository is dedicated to the Swiss Testing Day 2025 event, focusing on testing a System Under Test (SUT) using different Test Automation (TA) tools, including Selenium, Cypress, and Playwright. The SUT used for this demonstration is derived from the [Tab Tracker](https://github.com/codyseibert/tab-tracker) repository by Cody Seibert and updated by [Xebia](https://github.com/xebia/cypress-training/).
 
 ## Repository Structure
 
-### Installation and Setup
-
-Before running the tests, ensure you have the necessary dependencies installed:
-
-#### `install_dependencies.bat`
-
-This batch file installs the required dependencies for the project, including the necessary Node.js packages and libraries. For that you need to have [Node Js](https://nodejs.org/en/) installed: You must at least have **NODE version 8.2.1**
-
-For Selenium you need net6.0 installed (command 'dotnet' should work).
-
-
-```bash
-install_dependencies.bat
-```
-
-If there are any problems, please run the commands in the file manually.
-
-### Starting the Application
-
-To start the System Under Test (SUT), use the following batch file:
-
-#### `start_application.bat`
-
-This batch file initializes and runs the Tab Tracker application.
-
-```bash
-start_application.bat
-```
-
-### Running Test Suites
-
-We have test suites written in different Test Automation (TA) tools: Selenium, Cypress, and Playwright. You can run them individually or in sequence using the following batch files:
-
-#### `run_selenium.bat`
-
-This batch file executes the test suite using Selenium.
-
-```bash
-run_selenium.bat
-```
-
-#### `run_cypress.bat`
-
-This batch file executes the test suite using Cypress.
-
-```bash
-run_cypress.bat
-```
-
-#### `run_playwright.bat`
-
-This batch file executes the test suite using Playwright.
-
-```bash
-run_playwright.bat
-```
-
-Each batch file runs a set of predefined test cases for the SUT, using the respective TA tool.
-
 ## Getting Started
 
-1. Clone this repository to your local machine:
+To get started with this project, follow these steps:
 
-```bash
-git clone https://github.com/your-username/swiss-testing-night-ta-tools.git
-```
+Windows users should:
 
-2. Navigate to the project directory:
+1. Clone this repository to your local machine.
+2. Run `setup.bat` from the scripts folder to install the required
+   dependencies
+3. Execute `start_sut.bat` to start the System Under Test.
 
-```bash
-cd swiss-testing-night-ta-tools
-```
+MacOS / Linux users should:
 
-3. Install dependencies:
+1. Clone this repository to your local machine.
+2. From the root folder, run `./scripts/setup.sh` to install the required dependencies.
+3. From the root folder, run `./scripts/start_sut.sh` to start the
+   System Under Test.
 
-```bash
-install_dependencies.bat
-```
+### Running your tests
 
-4. Start the application:
+To make your exploration and testing process more accessible, we've created
+some scripts which can be found in the `scripts` folder. These scripts
+help you start a testrun with the selected testing tool. The following scripts
+can be found in the `scripts` folder:
 
-```bash
-start_application.bat
-```
+- **run_cypress** Executes a Cypress test run.
+- **run_playwright** Executes a Playwright test run.
+- **run_selenium** Executes a Selenium test run.
 
-5. Run the desired test suite:
-
-```bash
-run_selenium.bat
-run_cypress.bat
-run_playwright.bat
-```
 
 ## Special Case (Tricentis Tosca)
 

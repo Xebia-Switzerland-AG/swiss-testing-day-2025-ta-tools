@@ -4,12 +4,13 @@
   "description": "Testautomation example in Playwright",
   "main": "index.js",
   "scripts": {
-    "playwright:run": "playwright test --headed --project=firefox"
+    "playwright:run": "playwright test --headed"
   },
   "author": "Xebia",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.37.1",
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.14",
     "playwright": "^1.37.1"
   }
 }
