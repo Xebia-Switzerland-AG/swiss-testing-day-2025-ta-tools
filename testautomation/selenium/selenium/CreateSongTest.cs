@@ -51,7 +51,25 @@ namespace selenium
         }
 
         [TestMethod]
-        [Ignore] //Same Test as above only without the PageObjectModel
+        public void FindExistingSong()
+        {
+            // Arrange
+            var song = new Song
+            {
+                title = "She's Kerosene",
+                artist = "The Interrupters",
+                genre = "Ska Punk"
+            };
+
+            // Act
+            home.SearchSong(song);
+
+            // Assert
+            home.AssertSongIsVisible(song);
+        }
+
+        //[TestMethod]
+        //[Ignore] //Same Test as above only without the PageObjectModel
         public void CreateNewSongNoPageObjects()
         {
             // Arrange
