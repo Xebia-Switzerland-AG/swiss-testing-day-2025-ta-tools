@@ -12,24 +12,29 @@ namespace selenium
     {
         public BaseApplication app { get; private set; }
         public HomePage home { get; private set; }
+        public SongEditPage create { get; private set; }
         public SongViewPage view { get; private set; }
 
+        public Song song;
+
+
+        [ClassInitialize()]
+        public static void ResetDBBefore(TestContext testContext) {
+            BaseApplication app = new BaseApplication();
+            app.resetDB().GetAwaiter().GetResult();
+            app.Dispose();
+         }
 
         [TestInitialize]
         public void SetUpApplicationBase()
         {
             app = new BaseApplication();
             home = app.Home;
-            view = app.SongView;
+            create = app.CreateSong;
+            view = app.ViewSong;
 
-            app.resetDB().GetAwaiter().GetResult();
-        }
-
-        [TestMethod]
-        public void CreateNewSong()
-        {
             // Arrange
-            var song = new Song
+            song = new Song
             {
                 title = "Schatteboxe",
                 artist = "Zuerich West",
@@ -40,10 +45,15 @@ namespace selenium
                 tab = "test",
                 lyrics = "\nD Sunne schynt duer d Storen uf mys Pult\nU malt es chlyses Vieregg druf us Gold\nEh chasch es mitnaeh wes der gfallt\nDe chasch es ha\nDu muesch mer nuet erklaere wed wosch ga\nEh d Stadt isch violett u d Schaette laeng\nI weiss nume nid was soell i jetz mit daem?\nWed nomau muesch ueberlege, ueberleisch\nAber mir muesch nuet erklaere we de geisch\nI probieres z akzeptiere so wies isch\nU grad alles wirdi sicher nid vermisse\nI chume geng no nid ganz drus\nWas du fuer eini bisch aber chasch sicher si\nDass i das gaern wett wuesse\nD Sunne schynt duer d Storen yy uf ds Pult\nU malt es chlyses Vieregg druf us Gold\nEh d Stadt isch violett u d Schaette laeng\nI weiss nume nid was soell i jetz mit daem?\nI schatteboxe gaege d Waend\n\nI probieres z akzeptiere wes so isch\nU grad alles wirdi sicher nid vermisse\nI chume geng no nid ganz drus\nWas du fuer eini bisch aber chasch sicher si\nDass i das gaern wett wuesse\nD Sunne schynt duer d Storen uf mys Pult\nU malt es chlyses Vieregg druf us Gold\nD Stadt isch violett u d Schaette laeng\nI weiss nume nid was soell i jetz mit daem?\nI schatteboxe gaege d Waend\nSchatteboxe gaege d Waend"
             };
+        }
+
+        [TestMethod]
+        public void CreateNewSong()
+        {
 
             // Act
             home.ClickCreateNewSong();
-            view.CreateSong(song);
+            create.CreateSong(song);
             home.SearchSong(song);
 
             // Assert
@@ -54,7 +64,7 @@ namespace selenium
         public void FindExistingSong()
         {
             // Arrange
-            var song = new Song
+            var songNotUsedAnymore = new Song
             {
                 title = "She's Kerosene",
                 artist = "The Interrupters",
@@ -66,6 +76,12 @@ namespace selenium
 
             // Assert
             home.AssertSongIsVisible(song);
+
+            // Act
+            home.ClickViewSong();
+
+            // Assert
+            view.VerifySong(song);
         }
 
         //[TestMethod]
@@ -87,17 +103,17 @@ namespace selenium
 
             // Act
             home.ClickOnElement(By.CssSelector("a[href='#/songs/create'] div:first-child"));
-            view.ClearAndSendTextToElement(By.Id("sngTitle"), song.title);
-            view.ClearAndSendTextToElement(By.Id("sngArtist"), song.artist);
-            view.ClearAndSendTextToElement(By.Id("sngGenre"), song.genre);
-            view.ClearAndSendTextToElement(By.Id("sngAlbum"), song.album);
-            view.ClearAndSendTextToElement(By.Id("sngAlbumImg"), song.album_url);
-            view.ClearAndSendTextToElement(By.Id("sngYoutube"), song.youtube_id);
-            view.ClearAndSendTextToElement(By.Id("sngTab"), song.tab);
-            view.ClearAndSendTextToElement(By.Id("sngLyrics"), song.lyrics);
-            view.ClickOnElement(By.Id("sngBtn"));
+            create.ClearAndSendTextToElement(By.Id("sngTitle"), song.title);
+            create.ClearAndSendTextToElement(By.Id("sngArtist"), song.artist);
+            create.ClearAndSendTextToElement(By.Id("sngGenre"), song.genre);
+            create.ClearAndSendTextToElement(By.Id("sngAlbum"), song.album);
+            create.ClearAndSendTextToElement(By.Id("sngAlbumImg"), song.album_url);
+            create.ClearAndSendTextToElement(By.Id("sngYoutube"), song.youtube_id);
+            create.ClearAndSendTextToElement(By.Id("sngTab"), song.tab);
+            create.ClearAndSendTextToElement(By.Id("sngLyrics"), song.lyrics);
+            create.ClickOnElement(By.Id("sngBtn"));
             Thread.Sleep(1000);
-            view.SendTextToElement(By.XPath("//input[@data-test-id='search-bar']"), song.title);
+            create.SendTextToElement(By.XPath("//input[@data-test-id='search-bar']"), song.title);
             Thread.Sleep(1000);
 
             // Assert
@@ -109,8 +125,14 @@ namespace selenium
         [TestCleanup]
         public void ApplicationCleanUp()
         {
-            app.resetDB().GetAwaiter().GetResult();
             app.Dispose();
         }
+
+        [ClassCleanup()]
+        public static void ResetDBAfter() {
+            BaseApplication app = new BaseApplication();
+            app.resetDB().GetAwaiter().GetResult();
+            app.Dispose();
+         }
     }
 }
