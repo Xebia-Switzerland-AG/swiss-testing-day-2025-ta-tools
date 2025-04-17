@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using selenium.Infrastructure.Models;
@@ -13,6 +13,7 @@ namespace selenium.Infrastructure.PageObjects.Home
         public readonly By SongTitle = By.CssSelector("[data-test-id='songTitle']");
         public readonly By SongArtist = By.CssSelector("[data-test-id='songArtist']");
         public readonly By SongGenre = By.CssSelector("[data-test-id='songGenre']");
+        public readonly By ViewSongButton = By.CssSelector(".cyan.btn.btn--raised.theme--dark");
 
         public HomePage(ChromeDriver driver) : base(driver) { }
 
@@ -24,7 +25,7 @@ namespace selenium.Infrastructure.PageObjects.Home
         public void SearchSong(Song song)
         {
             SendTextToElement(SearchField, song.title);
-            Thread.Sleep(1000);
+            Thread.Sleep(3000);
         }
 
         public void AssertSongIsVisible(Song song)
@@ -32,6 +33,12 @@ namespace selenium.Infrastructure.PageObjects.Home
             GetTextFromElement(SongTitle).Should().Be(song.title);
             GetTextFromElement(SongArtist).Should().Be(song.artist);
             GetTextFromElement(SongGenre).Should().Be(song.genre);
+        }
+
+        public void ClickViewSong()
+        {
+            ClickOnElement(ViewSongButton);
+            Thread.Sleep(3000);
         }
     }
 }
